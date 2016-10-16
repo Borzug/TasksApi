@@ -1,0 +1,8 @@
+{
+    "Port": 8080,
+    "SeededTasksCount": 2000,
+    "MaxTaskQueueLength": 6,
+    "ProcessingCyclesInterval": 2000,
+    "RandomFailureChance": 10,
+    "ApiRoot": "/api"
+}

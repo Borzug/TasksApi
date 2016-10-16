@@ -1,0 +1,114 @@
+<html>
+<head>
+	<meta charset="utf-8" /> 
+    <style>
+        table,
+        th,
+        td {
+            border: 1px solid lightgrey;
+            padding: 5px;
+        }
+        
+        ul {
+            padding: 20px;
+        }
+        
+        section {
+            padding: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Описание Tasks Api</h1>
+    <section>Для запуска сервера Tasks Api необходимо выполнить следующие действия:
+        <ol>
+            <li>Установить Node.js версии 6+ (<a href="https://nodejs.org/dist/v6.3.0/node-v6.3.0-x64.msi">https://nodejs.org/dist/v6.3.0/node-v6.3.0-x64.msi</a>);</li>
+            <li>Запустить Node.js Command Prompt;</li>
+            <li>Перейти в каталог приложения TasksApi;</li>
+            <li>Выполнить команду "npm install" (загружает необходимые модули в каталог приложения) и дождаться её завершения;</li>
+            <li>Выполнить команду "npm start".</li>
+        </ol>
+        Если все сделано верно, то Tasks Api будет доступно по адресу http://localhost:8080/<br />
+        При запуске будут созданы тестовые данные; запущен обработчик, постепенно выполняющий задачи.
+    </section>
+    <section>
+        <table>
+            <thead>
+                <tr>
+                    <th>Адрес</th>
+                    <th>Метод</th>
+                    <th>Описание</th>
+                    <th>Параметры</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>api/tasks/types</td>
+                    <td>GET</td>
+                    <td>Возвращает список типов заданий.</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>api/tasks?name={name}&typeId={typeId}&statusCode={statusCode}&from={from}&to={to}&skip={skip}&take={take}</td>
+                    <td>GET</td>
+                    <td>Возвращает список заданий.<br />Если указаны параметры skip и take, то дополнительно вернется общее количество заданий</td>
+                    <td>
+                        Опциональные параметры:
+                        <ul>
+                            <li>{name} — фильтр по названию задания;</li>
+                            <li>{typeId} — фильтр по типу задания (может быть множественным);</li>
+                            <li>{statusCode} — фильтр по статусу задания (может быть множественным);</li>
+                            <li>{from} — фильтр по дате создания, начиная с даты;</li>
+                            <li>{to} — фильтр по дате создания, заканчивая датой;</li>
+                            <li>{skip} — количество заданий, которое необходимо пропустить;</li>
+                            <li>{take} — количество заданий, которое необходимое выбрать.</li>
+                        </ul>
+                    </td>
+                </tr>
+                <tr>
+                    <td>api/tasks</td>
+                    <td>POST</td>
+                    <td>
+                        <ul>
+                            <li>Создает новое задание;</li>
+                            <li>Возвращает id задания.</li>
+                        </ul>
+                    </td>
+                    <td>
+                        <ul>
+                            <li>name — название задания;</li>
+                            <li>typeId — идентификатор типа задания.</li>
+                        </ul>
+                    </td>
+                </tr>
+                <tr>
+                    <td>api/tasks/{id}</td>
+                    <td>GET</td>
+                    <td>Возвращает задание.</td>
+                    <td>{id} — идентификатор задания.</td>
+                </tr>
+                <tr>
+                    <td>api/tasks/{id}</td>
+                    <td>DELETE</td>
+                    <td>Удаляет задание.</td>
+                    <td>{id} — идентификатор задания.</td>
+                </tr>
+                <tr>
+                    <td>api/tasks/{id}</td>
+                    <td>PUT</td>
+                    <td>Обновляет задание.</td>
+                    <td>
+                        <ul>
+                            <li>{id} — идентификатор задания;</li>
+                            <li>name — название задания;</li>
+                            <li>typeId — идентификатор типа задания.</li>
+                        </ul>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+</body>
+
+</html>
